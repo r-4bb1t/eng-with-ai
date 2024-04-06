@@ -40,19 +40,36 @@ export default function Main({ concept }: { concept: ConceptType }) {
     }
   }, [mediaRecorder]);
 
-  const playTTS = useCallback(async (text: string) => {
-    const res = await fetch("/api/tts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ text }),
-    });
+  const playTTS = useCallback(async (grammar: string, response: string) => {
+    const [grammarAudio, responseAudio] = await Promise.all(
+      [grammar, response].map(async (text) => {
+        if (!text) return "";
+        const res = await fetch("/api/tts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text }),
+        });
 
-    const { buffer } = await res.json();
+        const { buffer } = await res.json();
 
-    const audio = new Audio(`data:audio/mp3;base64,${buffer}`);
+        return buffer;
+      }),
+    );
+
+    if (!grammarAudio) {
+      const audio = new Audio(`data:audio/mp3;base64,${responseAudio}`);
+      audio.play();
+      return;
+    }
+    const audio = new Audio(`data:audio/mp3;base64,${grammarAudio}`);
     audio.play();
+
+    audio.onended = () => {
+      const audio = new Audio(`data:audio/mp3;base64,${responseAudio}`);
+      audio.play();
+    };
   }, []);
 
   const handleSend = useCallback(async () => {
@@ -115,7 +132,7 @@ export default function Main({ concept }: { concept: ConceptType }) {
     setAudioURL("");
     setLoading("");
 
-    playTTS(response);
+    playTTS(grammar, response);
   }, [audioURL, concept, history, playTTS, stopRecording]);
 
   return (

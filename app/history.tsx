@@ -29,6 +29,11 @@ export default function History({
       <div className="flex flex-col justify-end gap-4">
         {history.map((item, index) => (
           <div key={index}>
+            {item.grammar && (
+              <div className="ml-3 w-fit rounded bg-base-200 px-2 py-1 text-sm font-medium text-base-content">
+                {item.grammar}
+              </div>
+            )}
             <div
               className={cc([
                 "chat",
@@ -46,15 +51,10 @@ export default function History({
                 {item.content}
               </div>
             </div>
-            {item.grammar && (
-              <div className="ml-3 rounded bg-base-200 px-2 py-1 text-sm font-medium text-base-content">
-                {item.grammar}
-              </div>
-            )}
             {item.words && (
               <div className="ml-3 mt-2 flex flex-wrap gap-2">
                 {item.words.map((word, index) => (
-                  <div key={index} className="badge badge-primary font-bold">
+                  <div key={index} className="badge badge-secondary font-bold">
                     {word.word}{" "}
                     <span className="ml-1 font-light">{word.meaning}</span>
                   </div>
