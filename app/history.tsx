@@ -42,7 +42,7 @@ export default function History({
             >
               <div
                 className={cc([
-                  "chat-bubble max-w-xl",
+                  "chat-bubble max-w-72 md:max-w-xl",
                   item.role === "user"
                     ? "chat-bubble-primary"
                     : "chat-bubble-secondary",
@@ -54,7 +54,7 @@ export default function History({
             {item.words && (
               <div className="ml-3 mt-2 flex flex-wrap gap-2">
                 {item.words.map((word, index) => (
-                  <div key={index} className="badge badge-secondary font-bold">
+                  <div key={index} className="badge badge-primary font-bold">
                     {word.word}{" "}
                     <span className="ml-1 font-light">{word.meaning}</span>
                   </div>
