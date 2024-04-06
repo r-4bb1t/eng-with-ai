@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
     prompt: `The transcript is about ${topic},
     Don't filter out interjections such as 'uh', 'um', 'hmm', and similar sounds.
     Transcribe user speech accurately, including moments when the user corrects themselves, hesitates, or uses filler words. This design should ensure that all aspects of spoken dialogue, including revisions and thinking pauses, are captured without filtering.
-    User's speech is in English.`,
+    User is Korean and user's speech is in English.`,
   });
 
   return Response.json({ text: transcription });

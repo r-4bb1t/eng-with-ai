@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { ConceptType } from "./types/concept";
 import History from "./history";
 import Record from "./input";
+import { ConceptType } from "./types/concept";
 
 export default function Main({ concept }: { concept: ConceptType }) {
   const [loading, setLoading] = useState<"" | "user" | "system">("");

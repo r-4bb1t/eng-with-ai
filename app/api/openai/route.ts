@@ -11,6 +11,11 @@ export const POST = async (req: Request) => {
   const response = await openai.chat.completions.create({
     model: "gpt-4-turbo-preview",
     messages: [
+      ...history,
+      {
+        role: "user",
+        content: text,
+      },
       {
         role: "assistant",
         content: PROMPT,
@@ -18,11 +23,6 @@ export const POST = async (req: Request) => {
       {
         role: "assistant",
         content: CONCEPT_PROMPT(concept),
-      },
-      ...history,
-      {
-        role: "user",
-        content: text,
       },
     ],
   });

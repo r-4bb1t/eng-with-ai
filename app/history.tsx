@@ -21,7 +21,7 @@ export default function History({
         behavior: "smooth",
       });
     }
-  }, [history]);
+  }, [history, loading]);
 
   return (
     <div

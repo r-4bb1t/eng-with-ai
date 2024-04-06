@@ -99,6 +99,96 @@ export const CONCEPTS = [
     description:
       "Talking about local festivals, concerts, or events you're excited about or have attended.",
   },
+  {
+    topic: "Gardening and Plant Care",
+    description:
+      "Sharing tips on plant care, discussing gardening projects, or talking about the types of plants you enjoy growing.",
+  },
+  {
+    topic: "Mental Health and Well-being",
+    description:
+      "Discussing strategies for managing stress, mental health awareness, and practices for improving well-being.",
+  },
+  {
+    topic: "Language Learning",
+    description:
+      "Discussing the process of learning new languages, sharing tips, and cultural insights gained.",
+  },
+  {
+    topic: "Cooking and Baking Techniques",
+    description:
+      "Sharing advanced cooking or baking techniques, culinary skills, or exploring international cuisines.",
+  },
+  {
+    topic: "Cooking and Baking Techniques",
+    description:
+      "Sharing advanced cooking or baking techniques, culinary skills, or exploring international cuisines.",
+  },
+  {
+    topic: "Video Games and Interactive Media",
+    description:
+      "Talking about recent video games played, game development insights, or trends in interactive media.",
+  },
+  {
+    topic: "Writing and Blogging",
+    description:
+      "Talking about writing projects, blogging insights, or sharing writing tips.",
+  },
+  {
+    topic: "Board Games and Puzzles",
+    description:
+      "Discussing favorite board games, puzzle solving experiences, or organizing game nights.",
+  },
+  {
+    topic: "Morning Routines",
+    description:
+      "Discussing how you start your day, morning rituals, or breakfast choices.",
+  },
+  {
+    topic: "Local Eateries and Cafes",
+    description:
+      "Sharing your favorite local spots for dining out, cafe hangouts, or discovering new places to eat.",
+  },
+  {
+    topic: "Home Decorating",
+    description:
+      "Talking about home decor ideas, interior design projects, or organizing tips.",
+  },
+  {
+    topic: "Budgeting and Personal Finance",
+    description:
+      "Discussing budgeting strategies, saving tips, or personal finance goals.",
+  },
+  {
+    topic: "Movie and Music Trivia",
+    description:
+      "Sharing trivia about movies and music, fun facts, or organizing trivia nights.",
+  },
+  {
+    topic: "Daily Commutes",
+    description:
+      "Talking about commuting experiences, playlists or podcasts for the road, or public transport stories.",
+  },
+  {
+    topic: "Coffee and Tea Preferences",
+    description:
+      "Discussing coffee or tea preferences, brewing methods, or favorite blends.",
+  },
+  {
+    topic: "Weeknight Dinners",
+    description:
+      "Sharing quick and easy dinner recipes, meal planning tips, or weeknight cooking challenges.",
+  },
+  {
+    topic: "Productivity and Time Management",
+    description:
+      "Talking about productivity hacks, time management tools, or balancing work and life.",
+  },
+  {
+    topic: "Smart Home Devices",
+    description:
+      "Discussing smart home technology, device recommendations, or home automation tips.",
+  },
 ];
 
 export const getRandomConcept = () => {
