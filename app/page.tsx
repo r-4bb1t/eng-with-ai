@@ -1,11 +1,9 @@
 import Main from "./main";
-
 import Header from "./components/header";
 import { getRandomConcept } from "./constants/concepts";
 
-const getConcept = () => getRandomConcept();
-
 export default function Home() {
+  const getConcept = () => getRandomConcept();
   const concept = getConcept();
 
   return (

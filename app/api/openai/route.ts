@@ -27,9 +27,9 @@ export const POST = async (req: Request) => {
     ],
   });
 
-  const data = response.choices[0].message.content;
+  console.log(response.choices[0].message.content);
 
-  return Response.json({
-    text: data,
-  });
+  const data = JSON.parse(response.choices[0].message.content || "");
+
+  return Response.json(data);
 };

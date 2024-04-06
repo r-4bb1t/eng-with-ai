@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import History from "./history";
 import Record from "./input";
 import { ConceptType } from "./types/concept";
+import { ChatType } from "./types/chat";
 
 export default function Main({ concept }: { concept: ConceptType }) {
   const [loading, setLoading] = useState<"" | "user" | "system">("");
@@ -12,12 +13,7 @@ export default function Main({ concept }: { concept: ConceptType }) {
   const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(
     null,
   );
-  const [history, setHistory] = useState<
-    {
-      role: "user" | "system";
-      content: string;
-    }[]
-  >([]);
+  const [history, setHistory] = useState<ChatType[]>([]);
 
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
@@ -94,16 +90,25 @@ export default function Main({ concept }: { concept: ConceptType }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ text, history, concept }),
+      body: JSON.stringify({
+        text,
+        history: history.map((h) => ({
+          role: h.role,
+          content: h.content,
+        })),
+        concept,
+      }),
     });
 
-    const { text: response } = await res.json();
+    const { response, grammar, words } = await res.json();
 
     setHistory((history) => [
       ...history,
       {
         role: "system",
         content: response,
+        grammar,
+        words,
       },
     ]);
 
