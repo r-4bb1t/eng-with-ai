@@ -5,6 +5,7 @@ import History from "./history";
 import Record from "./input";
 import { ConceptType } from "./types/concept";
 import { ChatType } from "./types/chat";
+import { BiCaretDown, BiChevronDown } from "react-icons/bi";
 
 export default function Main({ concept }: { concept: ConceptType }) {
   const [loading, setLoading] = useState<"" | "user" | "system">("");
@@ -137,6 +138,14 @@ export default function Main({ concept }: { concept: ConceptType }) {
 
   return (
     <div className="flex h-full w-full flex-col pb-24">
+      {history.length === 0 && !recording && !audioURL && (
+        <div className="fixed inset-x-0 bottom-24 flex w-full flex-col items-center">
+          <div className="rounded-full bg-secondary px-8 py-2 text-secondary-content">
+            Click Here to Start!
+          </div>
+          <BiCaretDown size={32} className="text-secondary" />
+        </div>
+      )}
       <Record
         recording={recording}
         audioURL={audioURL}
