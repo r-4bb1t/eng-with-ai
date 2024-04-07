@@ -6,9 +6,6 @@ const getConcept = async () => {
   try {
     const res = await fetch(process.env.APP_URL + "/api/concepts", {
       cache: "no-cache",
-      next: {
-        revalidate: 1,
-      },
     });
     const { concept }: { concept: ConceptType } = await res.json();
     return concept;
