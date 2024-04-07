@@ -25,3 +25,11 @@ export const CONCEPT_PROMPT = (concept: {
 }) => `The topic of today's conversation is ${concept.topic}.
 ${concept.description}
 `;
+
+export const STT_PROMPT = (
+  topic: string,
+) => `Don't filter out interjections such as 'uh', 'um', 'hmm', and similar sounds.
+Transcribe user speech accurately, including moments when the user corrects themselves, hesitates, or uses filler words.
+This design should ensure that all aspects of spoken dialogue, including revisions and thinking pauses, are captured without filtering.
+Don't correct the user's speech.
+User is Korean and user's speech is in English. The topic is about ${topic}`;
