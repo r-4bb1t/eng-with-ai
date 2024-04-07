@@ -29,7 +29,10 @@ export const POST = async (req: Request) => {
 
   console.log(response.choices[0].message.content);
 
-  const data = JSON.parse(response.choices[0].message.content || "");
-
-  return Response.json(data);
+  try {
+    const data = JSON.parse(response.choices[0].message.content || "");
+    return Response.json(data);
+  } catch (e) {
+    return Response.json({ response: response.choices[0].message.content });
+  }
 };
