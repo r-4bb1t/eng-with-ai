@@ -54,10 +54,16 @@ export default function History({
             {item.words && (
               <div className="ml-3 mt-2 flex flex-wrap gap-2">
                 {item.words.map((word, index) => (
-                  <div key={index} className="badge badge-primary font-bold">
+                  <motion.div
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2, delay: index * 0.1 }}
+                    key={index}
+                    className="badge badge-primary font-bold"
+                  >
                     {word.word}{" "}
                     <span className="ml-1 font-light">{word.meaning}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             )}

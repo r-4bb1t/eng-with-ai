@@ -9,7 +9,7 @@ RESPONSE FORMAT MUST BE IN JSON FORMAT
 Example:
 {
   "response": "Your response here",
-  "grammar": "If my grammar is wrong, identify and correct any grammatical errors in my sentences! (if not, don't put anything here.)",
+  "grammar": "If my grammar is wrong, identify and correct any grammatical errors in my sentences!",
   "words: [
     {
         "word": "word",
