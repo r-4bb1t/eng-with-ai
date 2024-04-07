@@ -5,3 +5,5 @@ export const GET = async (_: Request) => {
   console.log(concept);
   return Response.json({ concept });
 };
+
+export const dynamic = "force-dynamic";
