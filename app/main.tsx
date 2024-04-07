@@ -139,7 +139,7 @@ export default function Main({ concept }: { concept: ConceptType }) {
   return (
     <div className="flex h-full w-full flex-col pb-24">
       {history.length === 0 && !recording && !audioURL && (
-        <div className="fixed inset-x-0 bottom-24 flex w-full flex-col items-center">
+        <div className="fixed inset-x-0 bottom-24 flex w-full animate-bounce flex-col items-center">
           <div className="rounded-full bg-secondary px-8 py-2 text-secondary-content">
             Click Here to Start!
           </div>
